@@ -15,10 +15,16 @@ func TestTxQuery(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+	t.Cleanup(func() {
+		conn.Close(ctx)
+	})
 	pgxtx, err := conn.Begin(ctx)
 	if err != nil {
 		t.Fatal(err)
 	}
+	t.Cleanup(func() {
+		pgxtx.Rollback(ctx)
+	})
 	tx := Tx(pgxtx)
 
 	for _, test := range []struct {
