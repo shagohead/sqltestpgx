@@ -2,11 +2,9 @@ module github.com/shagohead/sqltestpgx
 
 go 1.24.1
 
-replace github.com/shagohead/sqltest => ../sqltest
-
 require (
 	github.com/jackc/pgx/v5 v5.7.2
-	github.com/shagohead/sqltest v0.0.0-00010101000000-000000000000
+	github.com/shagohead/sqltest v0.2.2
 )
 
 require (
